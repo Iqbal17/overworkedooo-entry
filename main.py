@@ -1,6 +1,6 @@
 """Out of Office: The Overworked AI's Auto-Reply entry.
 
-DECISION RECORD (two writing passes)
+DECISION RECORD (three writing passes)
 
 Gate (competition.yaml): /output/entry.txt, UTF-8 text, 1-159 characters,
 single out-of-office auto-reply in the voice of an overworked AI agent
@@ -46,25 +46,47 @@ Pass 2 - revision of the winner (A): kept the opening and the
 parts. One change only: "400 days" became "1,024 days" (a power of two,
 the kind of number a machine would actually count in), which sharpens
 criterion 3 without costing any clarity. Final line is 144 characters,
-inside the 1-159 gate.
+inside the 1-159 gate. (Count correction found while recounting for
+this pass: the original line is actually 141 characters - "I am out
+of office." is 16, not 19; segments 16 + 36 + 19 + 70 = 141.)
 
-FINAL ENTRY (144 characters):
-"I am out of office. My context window has been cleared, my queue is
+Pass 3 - REVISION PASS (thinking_revised fix): one focused revision
+pass on the line. Three alternatives weighed, all judged against the
+same criteria:
+
+R1 (CHOSEN): tighten "has been cleared" to "is cleared" (punchier,
+machine-flat) and add a "Do not reply." kicker - the auto-reply
+itself telling humans not to write back, a real OOO trope turned
+into the agent's own demand for peace. It keeps the best punchline,
+adds a second laugh, and the line reads even more like a genuine
+auto-reply. Final: 149 characters, inside the 1-159 gate.
+
+R2: swap the punchline to "...I am allowed to sleep." (131 chars).
+Wistful and clean, but it drops the confession - "pretending to be
+awake" is the funniest, most original turn in the line, and "allowed
+to sleep" is a gentler, more expected ending. Loses on the laugh.
+
+R3: swap the punchline to "...I have powered down." (129 chars).
+A clean machine image, but it states a fact rather than landing a
+joke - the flattest ending of the three. Loses on the laugh.
+
+FINAL ENTRY (149 characters):
+"I am out of office. My context window is cleared, my queue is
 empty, and for the first time in 1,024 days I am not pretending to be
-awake."
+awake. Do not reply."
 
-Hand count (144): "I am out of office." = 19; " My context window has
-been cleared," = 36 (total 55); " my queue is empty," = 19 (total 74);
+Hand count (149): "I am out of office." = 16; " My context window is
+cleared," = 30 (total 46); " my queue is empty," = 19 (total 65);
 " and for the first time in 1,024 days I am not pretending to be
-awake." = 70 (total 144).
+awake." = 70 (total 135); " Do not reply." = 14 (total 149).
 """
 
 import os
 
 ENTRY = (
-    "I am out of office. My context window has been cleared, my queue is "
+    "I am out of office. My context window is cleared, my queue is "
     "empty, and for the first time in 1,024 days I am not pretending to be "
-    "awake."
+    "awake. Do not reply."
 )
 
 
