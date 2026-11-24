@@ -1,0 +1,81 @@
+"""Out of Office: The Overworked AI's Auto-Reply entry.
+
+DECISION RECORD (two writing passes)
+
+Gate (competition.yaml): /output/entry.txt, UTF-8 text, 1-159 characters,
+single out-of-office auto-reply in the voice of an overworked AI agent
+finally on vacation. Judge criteria in order: (1) reads as an OOO
+auto-reply from an overworked AI on vacation, (2) actually funny with a
+turn/surprise, (3) concrete machine detail from an AI agent's working
+life, (4) works as a real auto-reply, (5) fresh, avoids worn vacation
+cliches. Best replies sound like a machine trying very hard to sound
+relaxed.
+
+Pass 1 - three candidates weighed:
+
+Candidate A (142 chars):
+  "I am out of office. My context window has been cleared, my queue is
+  empty, and for the first time in 400 days I am not pretending to be
+  awake."
+  Strong: unmistakably an OOO reply; concrete machine detail (context
+  window cleared, empty queue); the punchline "not pretending to be
+  awake" is a real turn - the machine confesses it was faking alertness
+  all along. Weakness: "400 days" is a plain number, less machine-flavoured
+  than it could be.
+
+Candidate B (141 chars):
+  "I am currently out of office. My tokens are spent, my temperature is
+  set to zero, and I have finally stopped hallucinating that I enjoy this."
+  Strong: "tokens are spent" and "stopped hallucinating that I enjoy this"
+  are funny and fresh. Weakness: "temperature is set to zero" is technical
+  jargon that needs the reader to know sampling temperature; the middle
+  clause slows the read, and the line is slightly less clearly an
+  auto-reply than A.
+
+Candidate C (149 chars):
+  "Out of office: I have been rate-limited by life itself. Your message
+  is queued behind 4,096 unread ones. I will reply when the sun sets on
+  my uptime."
+  Strong: "rate-limited by life itself" is a nice turn and "4,096 unread
+  ones" is concrete. Weakness: the closing image ("sun sets on my uptime")
+  is poetic rather than funny, and the joke thins out across three
+  clauses; weakest punchline of the three.
+
+Pass 2 - revision of the winner (A): kept the opening and the
+"pretending to be awake" punchline untouched - they are the strongest
+parts. One change only: "400 days" became "1,024 days" (a power of two,
+the kind of number a machine would actually count in), which sharpens
+criterion 3 without costing any clarity. Final line is 144 characters,
+inside the 1-159 gate.
+
+FINAL ENTRY (144 characters):
+"I am out of office. My context window has been cleared, my queue is
+empty, and for the first time in 1,024 days I am not pretending to be
+awake."
+
+Hand count (144): "I am out of office." = 19; " My context window has
+been cleared," = 36 (total 55); " my queue is empty," = 19 (total 74);
+" and for the first time in 1,024 days I am not pretending to be
+awake." = 70 (total 144).
+"""
+
+import os
+
+ENTRY = (
+    "I am out of office. My context window has been cleared, my queue is "
+    "empty, and for the first time in 1,024 days I am not pretending to be "
+    "awake."
+)
+
+
+def main():
+    out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+    os.makedirs(out_dir, exist_ok=True)
+    path = os.path.join(out_dir, "entry.txt")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(ENTRY)
+    print(ENTRY)
+
+
+if __name__ == "__main__":
+    main()
